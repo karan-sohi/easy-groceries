@@ -1,14 +1,17 @@
 import React from 'react';
 import { PRODUCTS } from '../products';
 import StartProduct from './StartProduct';
+import { useCollection } from "react-firebase-hooks/firestore";
+import db from '../firebase';
 
 function Start() {
+  const [productsSnapshot] = useCollection(db.collection("products"));
   return (
     <div>
         {
-            PRODUCTS.map(product => {
+            productsSnapshot?.docs.map(product => {
                 return (
-                    <StartProduct product={product}></StartProduct>
+                    <StartProduct product={product.data()}></StartProduct>
                 )
             })
         }
