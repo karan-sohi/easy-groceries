@@ -4,16 +4,19 @@ import PlanProduct from "./PlanProduct";
 import db from "../firebase";
 import { useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
+import { serverTimestamp } from 'firebase/firestore';
+import firebase from "firebase/compat/app";
 
 function Plan() {
   const [enterProduct, setEnterProduct] = useState("");
   const [products, setProducts] = useState([]);
-  const [productsSnapshot] = useCollection(db.collection("products"));
+  const [productsSnapshot] = useCollection(db.collection("products").orderBy("timestamp", "asc"));
 
   const submitProductHandler = (event) => {
     event.preventDefault();
     db.collection("products").add({
       name: enterProduct,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
     setProducts([...products, { name: enterProduct }]);
     setEnterProduct("");
@@ -28,7 +31,7 @@ function Plan() {
       <div className="h-4/5 p-3 w-90 m-auto bg-slate-100">
         <div className="grid grid-cols-3 gap-3">
           {productsSnapshot?.docs.map((product) => {
-            return <PlanProduct key={product.id} product={product.data().name}></PlanProduct>;
+            return <PlanProduct key={product.id} docId={product.id} product={product.data()}></PlanProduct>;
           })}
         </div>
       </div>
@@ -42,6 +45,7 @@ function Plan() {
           placeholder="Chicken"
           className="p-3 w-80"
         ></input>
+      
       </div>
     </div>
   );

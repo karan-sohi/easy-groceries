@@ -11,7 +11,7 @@ function Start() {
         {
             productsSnapshot?.docs.map(product => {
                 return (
-                    <StartProduct product={product.data()}></StartProduct>
+                    <StartProduct key={product.id} product={product.data()}></StartProduct>
                 )
             })
         }
