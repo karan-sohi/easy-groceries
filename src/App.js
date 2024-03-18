@@ -8,23 +8,14 @@ import Start from "./components/Start";
 
 function App() {
   return (
-    <div className="bg-slate-200 text-center">
-      {/* <h1 className="text-xl p-4">Finally Groceries made easy</h1> */}
-      {/* {
-        PRODUCTS.map(product => {
-          return (
-            <StartProduct product={product}></StartProduct>
-          );
-        }
-        ) 
-      } */}
+    <div className="bg-white text-center">
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/plan" element={<Plan></Plan>}></Route>
         <Route path="/start" element={<Start></Start>}></Route>
       </Routes>
-      </BrowserRouter>
+      </BrowserRouter>  
     </div>
   );
 }
