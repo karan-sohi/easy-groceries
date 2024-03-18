@@ -24,18 +24,18 @@ function Plan() {
 
 
   return (
-    <div className="h-screen m-auto">
-      <div className="h-1/7 bg-amber-200 p-4">
-        <h1 className=" text-4xl">Items of the Week</h1>
+    <div className="h-screen m-auto bg-slate-100">
+      <div className="h-1/7 pb-2 pt-6">
+        <h1 className="ml-3 text-left font-bold text-4xl">ADD ITEMS</h1>
       </div>
-      <div className="h-4/5 p-3 w-90 m-auto bg-slate-100">
+      <div className="h-4/5 pt-5 p-4 w-90 m-auto">
         <div className="grid grid-cols-3 gap-3">
           {productsSnapshot?.docs.map((product) => {
             return <PlanProduct key={product.id} docId={product.id} product={product.data()}></PlanProduct>;
           })}
         </div>
       </div>
-      <div className="h-14 w-screen bg-amber-400 ">
+      <div className="h-30 p-4 bg-white w-screen ">
         <input
           onKeyDown={(e) => {
             if (e.key === "Enter") submitProductHandler(e);
@@ -43,7 +43,7 @@ function Plan() {
           onChange={(e) => setEnterProduct(e.target.value)}
           value={enterProduct}
           placeholder="Chicken"
-          className="p-3 w-80"
+          className="p-3 w-4/5 border-2"
         ></input>
       
       </div>

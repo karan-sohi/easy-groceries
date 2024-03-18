@@ -1,12 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Poppins:wght@400;500;600;700&family=Quando&display=swap');
 
 body {
   margin: 0;
-  font-family: "Lusitana", serif;
+  font-family: "Quando", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
