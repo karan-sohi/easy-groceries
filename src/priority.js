@@ -58,7 +58,7 @@ const priority = [
     {
         name: 'Rice',
         priority: 525
-    },
+    },  
     {
         name: 'Atta',
         priority: 550

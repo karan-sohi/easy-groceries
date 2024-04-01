@@ -1,19 +1,35 @@
 import React from 'react';
+import { useState } from 'react';
 import ClearIcon from '@mui/icons-material/Clear';
 import db from '../firebase';
+import EditIcon from '@mui/icons-material/Edit';
+import { useCollection } from "react-firebase-hooks/firestore";
+
 
 function PlanProduct({product, docId}) {
+  const [clicked, changeClicked] = useState(false);
   const deleteProduct = () => {
     db.collection("products").doc(docId).delete();
   }
+
+  const selectProduct = () => {
+    db.collection("products").doc(docId).update({
+      clicked: !product.clicked
+    })
+    changeClicked(!clicked);
+  }
+
+  let productClicked = "flex justify-around rounded-md bg-red-300"
+  let productNotClicked = "flex justify-around rounded-md bg-white"
   return (
-    <div className="flex justify-around bg-red-300 ">
+    <div className={product.clicked ? productClicked : productNotClicked} onClick={selectProduct}>
       <div>
         <h1>{product.name}</h1>
       </div>
-      <div onClick={deleteProduct}>
+      {/* <div>
         <ClearIcon></ClearIcon>
-      </div>
+        <EditIcon></EditIcon>
+      </div> */}
     </div>
   )
 }

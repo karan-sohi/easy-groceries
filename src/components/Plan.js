@@ -28,14 +28,14 @@ function Plan() {
       <div className="h-1/7 pb-2 pt-6">
         <h1 className="ml-3 text-left font-bold text-4xl">ADD ITEMS</h1>
       </div>
-      <div className="h-4/5 pt-5 p-4 w-90 m-auto">
+      <div className="h-3/5 pt-5 p-4 w-90 m-auto">
         <div className="grid grid-cols-3 gap-3">
           {productsSnapshot?.docs.map((product) => {
             return <PlanProduct key={product.id} docId={product.id} product={product.data()}></PlanProduct>;
           })}
         </div>
       </div>
-      <div className="h-30 p-4 bg-white w-screen ">
+      <div className="h-2/5  p-4 bg-white w-screen ">
         <input
           onKeyDown={(e) => {
             if (e.key === "Enter") submitProductHandler(e);
