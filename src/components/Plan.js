@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { serverTimestamp } from 'firebase/firestore';
 import firebase from "firebase/compat/app";
+import SendIcon from '@mui/icons-material/Send';
 
 function Plan() {
   const [enterProduct, setEnterProduct] = useState("");
@@ -17,6 +18,7 @@ function Plan() {
     db.collection("products").add({
       name: enterProduct,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      priority: 0,
     });
     setProducts([...products, { name: enterProduct }]);
     setEnterProduct("");
@@ -35,7 +37,7 @@ function Plan() {
           })}
         </div>
       </div>
-      <div className="h-2/5  p-4 bg-white w-screen ">
+      <div className="flex justify-center p-2 bg-white w-screen ">
         <input
           onKeyDown={(e) => {
             if (e.key === "Enter") submitProductHandler(e);
@@ -43,8 +45,11 @@ function Plan() {
           onChange={(e) => setEnterProduct(e.target.value)}
           value={enterProduct}
           placeholder="Chicken"
-          className="p-3 w-4/5 border-2"
+          className="p-3 m-2 w-4/5 border-2"
         ></input>
+        <div className="bg-red-300 m-2 justify-center">
+        <SendIcon ></SendIcon>
+        </div>
       
       </div>
     </div>
