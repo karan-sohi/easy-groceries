@@ -11,7 +11,7 @@ import SendIcon from "@mui/icons-material/Send";
 function Plan() {
   const [enterProduct, setEnterProduct] = useState("");
   const [products, setProducts] = useState([]);
-  const [availableProducts, setAvailableProducts] = useState(false)
+  const [availableProduct, setAvailableProducts] = useState(false)
   const [productsSnapshot] = useCollection(
     db.collection("products").orderBy("timestamp", "asc")
   );
@@ -31,6 +31,7 @@ function Plan() {
         setAvailableProducts(true);
       }
     })
+    return true;
   }
 
 
@@ -39,9 +40,9 @@ function Plan() {
     if (enterProduct.length <= 0 )  {
       alert("Please enter product name");
     } 
-    else if (checkProduct(enterProduct))  {
-      alert("Product already exists");
-    }
+    // if (availableProduct)  {
+    //   alert("Product already exists");
+    // }
     else {  
       console.log("bad", enterProduct, "ab");
       db.collection("products").add({
