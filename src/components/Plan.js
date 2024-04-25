@@ -31,6 +31,7 @@ function Plan() {
   //   PRODUCTS_DATA.map((product) => {
   //     db.collection("products").add(product);
   //   });
+  //   console.log("good");
   // }, []);
 
   const checkProduct = (productName) => {
@@ -79,7 +80,7 @@ function Plan() {
           })}
         </div>
       </div>
-      <div className="flex justify-center fixed z-99999 bottom-7 bg-gray-200 w-screen ">
+      <div className="flex justify-center fixed z-99999 bottom-0 bg-gray-300 w-screen ">
         <input
           onChange={(e) => setEnterProduct(e.target.value)}
           value={enterProduct}
