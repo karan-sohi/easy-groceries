@@ -20,7 +20,7 @@ function PlanProduct({product, docId}) {
   }
 
   let productClicked = "flex justify-around rounded-md bg-red-300"
-  let productNotClicked = "flex justify-around rounded-md bg-white"
+  let productNotClicked = "flex justify-around rounded-md bg-white z-100"
   return (
     <div className={product.clicked ? productClicked : productNotClicked} onClick={selectProduct}>
       <div>

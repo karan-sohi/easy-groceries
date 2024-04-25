@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="h-auto">
+    <div className="h-auto bg-inherit">
       <div className="text-center">
         <img className="h-72 w-4/11 m-auto" src="./website-logo.png" />
       </div>

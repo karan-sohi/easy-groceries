@@ -2,48 +2,54 @@ import React from "react";
 import { PRODUCTS } from "../products";
 import PlanProduct from "./PlanProduct";
 import db from "../firebase";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { serverTimestamp } from "firebase/firestore";
 import firebase from "firebase/compat/app";
 import SendIcon from "@mui/icons-material/Send";
+import PRODUCTS_DATA from "../priority";
 
 function Plan() {
   const [enterProduct, setEnterProduct] = useState("");
   const [products, setProducts] = useState([]);
-  const [availableProduct, setAvailableProducts] = useState(false)
+  const [availableProduct, setAvailableProducts] = useState(false);
   const [productsSnapshot] = useCollection(
     db.collection("products").orderBy("timestamp", "asc")
   );
 
   // Delete unnecessary products from firestore database
   // const [deleteSnapshot] = useCollection(
-  //   db.collection("products").where("priority", "==", 0)
+  //   db.collection("products")
   // );
 
   // deleteSnapshot?.docs.map((doc) => {
   //   db.collection("products").doc(doc.id).delete();
   // });
 
-  const checkProduct = productName => {
+  // Update data into firestore firestore database
+  // useEffect(() => {
+  //   PRODUCTS_DATA.map((product) => {
+  //     db.collection("products").add(product);
+  //   });
+  // }, []);
+
+  const checkProduct = (productName) => {
     productsSnapshot.docs.map((doc) => {
       if (doc.data().name == productName) {
         setAvailableProducts(true);
       }
-    })
+    });
     return true;
-  }
-
+  };
 
   const submitProductHandler = () => {
-
-    if (enterProduct.length <= 0 )  {
+    if (enterProduct.length <= 0) {
       alert("Please enter product name");
-    } 
+    }
     // if (availableProduct)  {
     //   alert("Product already exists");
     // }
-    else {  
+    else {
       console.log("bad", enterProduct, "ab");
       db.collection("products").add({
         name: enterProduct,
@@ -73,7 +79,7 @@ function Plan() {
           })}
         </div>
       </div>
-      <div className="flex justify-center bg-white w-screen ">
+      <div className="flex justify-center fixed z-99999 bottom-7 bg-gray-200 w-screen ">
         <input
           onChange={(e) => setEnterProduct(e.target.value)}
           value={enterProduct}
