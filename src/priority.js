@@ -128,64 +128,8 @@ const PRODUCTS_DATA = [
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     },
     {
-        name: "Potatoes",
-        priority: 800, 
-        clicked: false,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    },
-    {
-        name: "Banana",
-        priority: 850, 
-        clicked: false,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    },
-    {
-        name: "Apples",
-        priority: 900, 
-        clicked: false,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    },
-    {
-        name: "Sabzi", 
-        priority: 925, 
-        clicked: false,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    },      
-    {
-        name: "Oranges",
-        priority: 950, 
-        clicked: false,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    },
-    {
-        name: "Kiwi",
-        priority: 1000, 
-        clicked: false,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    },
-
-///////////
-    {
-        name: "Biscuit",
-        priority: 600, 
-        clicked: false,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    },
-    {
-        name: "Gheo",
-        priority: 650, 
-        clicked: false,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    },
-    {
-        name: "Masala",
-        priority: 700, 
-        clicked: false,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    },
-    {
-        name: "Jira", 
-        priority: 750, 
+        name: "Onions",
+        priority: 775, 
         clicked: false,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     },
@@ -224,8 +168,7 @@ const PRODUCTS_DATA = [
         priority: 1000, 
         clicked: false,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    } 
-
+    }
 ]
 
 export default PRODUCTS_DATA;

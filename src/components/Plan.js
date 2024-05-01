@@ -26,22 +26,22 @@ function Plan() {
   //   db.collection("products").doc(doc.id).delete();
   // });
 
-  // Update data into firestore firestore database
+  //Update data into firestore firestore database
   // useEffect(() => {
   //   PRODUCTS_DATA.map((product) => {
   //     db.collection("products").add(product);
   //   });
-  //   console.log("good");
+
   // }, []);
 
-  const checkProduct = (productName) => {
-    productsSnapshot.docs.map((doc) => {
-      if (doc.data().name == productName) {
-        setAvailableProducts(true);
-      }
-    });
-    return true;
-  };
+  // const checkProduct = (productName) => {
+  //   productsSnapshot.docs.map((doc) => {
+  //     if (doc.data().name == productName) {
+  //       setAvailableProducts(true);
+  //     }
+  //   });
+  //   return true;
+  // };
 
   const submitProductHandler = () => {
     if (enterProduct.length <= 0) {
@@ -51,7 +51,6 @@ function Plan() {
     //   alert("Product already exists");
     // }
     else {
-      console.log("bad", enterProduct, "ab");
       db.collection("products").add({
         name: enterProduct,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -63,7 +62,7 @@ function Plan() {
   };
 
   return (
-    <div className="h-screen m-auto bg-slate-100">
+    <div className="pb-40 m-auto min-h-screen bg-slate-100">
       <div className="h-1/7 pb-2 pt-6">
         <h1 className="ml-3 text-left font-bold text-4xl">ADD ITEMS</h1>
       </div>

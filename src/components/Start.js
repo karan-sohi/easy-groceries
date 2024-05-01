@@ -14,12 +14,10 @@ function Start() {
   );
 
   // useEffect( () => {
-  //   console.log("godingk")
   //    setProductSelected(!productSelected);
   // }, [productSelected])
 
   const resetSelection = () => {
-    console.log("resetSelection", productSelected)
     setProductSelected(!productSelected);
   };
 

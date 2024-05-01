@@ -14,13 +14,11 @@ function StartProduct({product, selectedStyle}) {
   }
 
   useEffect(() => {
-    console.log("REsetted")
     select(selectedStyle);
   }, [selectedStyle]);
 
   return (
     <div className ={isSelected ? selectStyle : unSelectStyle}>
-      {console.log("changing", selectedStyle)}
     <div onClick={changeSelection} className="p-2">
         {product.name}
     </div>
